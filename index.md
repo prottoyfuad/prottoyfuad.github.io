@@ -10,3 +10,7 @@ I love Competitive Programming.<br>Check out my [Codeforces](https://codeforces.
 2. C++ 
 3. Python 
 ```
+
+### BLOGS
+## NUMBER THEORY
+- [Extended Euclidean Algorithm](/posts/number-theory/extended-euclid)
