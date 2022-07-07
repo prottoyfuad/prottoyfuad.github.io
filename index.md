@@ -11,6 +11,6 @@ I love Competitive Programming.<br>Check out my [Codeforces](https://codeforces.
 3. Python 
 ```
 
-### BLOGS
-## NUMBER THEORY
+### Blogs
+##### Number Theory
 - [Extended Euclidean Algorithm](/posts/number-theory/extended-euclid)
