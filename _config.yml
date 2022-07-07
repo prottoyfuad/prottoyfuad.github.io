@@ -1,4 +1,4 @@
 title: Peculiar Oatmeal
 logo: /assets/img/weather.jpg
-description: <a href = "https://www.imdb.com/title/tt9426210/"><i><p style="text-align:right;"><sup>Weathering with You</sup></p></i></a>Fahim Fuad Prottoy<br>Chittagong, Bangladesh<br><br>CS Undergrad <i>(2019 - 2023)</i><br>Southeast University, Dhaka, Bangladesh<br>
+description: <div style="text-align:right;"><a href = "https://www.imdb.com/title/tt9426210/"><i><sup>Weathering with You</sup></i></a></div><br>Fahim Fuad Prottoy<br>Chittagong, Bangladesh<br><br>CS Undergrad <i>(2019 - 2023)</i><br>Southeast University, Dhaka, Bangladesh<br>
 theme: jekyll-theme-minimal
