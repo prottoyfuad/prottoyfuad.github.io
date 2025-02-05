@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { marked } from 'marked';
+import { readFile } from 'node:fs';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,8 @@ export class AppComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.httpClient.get('flow.md', { responseType: 'text' })
+    const url = 'https://raw.githubusercontent.com/prottoyfuad/prottoyfuad.github.io/refs/heads/angular/blogs/flow.md';
+    this.httpClient.get(url, { responseType: 'text' })
       .subscribe({
         next: (markdown: string) => {
           this.markdownContent = markdown; // Store raw markdown content
