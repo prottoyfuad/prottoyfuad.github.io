@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    const url = 'https://raw.githubusercontent.com/prottoyfuad/prottoyfuad.github.io/refs/heads/angular/blogs/flow.md';
+    const url = 'https://raw.githubusercontent.com/prottoyfuad/prottoyfuad.github.io/refs/heads/angular/public/blogs/flow.md';
     this.httpClient.get(url, { responseType: 'text' })
       .subscribe({
         next: (markdown: string) => {
