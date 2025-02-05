@@ -41,8 +41,7 @@ export class AppComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    const url = 'prottoyfuad.github.io/blogs/flow.md';
-    this.httpClient.get(url, { responseType: 'text' })
+    this.httpClient.get('/blogs/flow.md', { responseType: 'text' })
       .subscribe({
         next: (markdown: string) => {
           this.markdownContent = markdown; // Store raw markdown content
