@@ -1,16 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { marked } from 'marked';
-import { readFile } from 'node:fs';
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   site: any = {
     title: 'Eucalyptus',
     logo: './logo.jpg',
@@ -33,24 +32,6 @@ export class AppComponent implements OnInit {
     repo: 'prottoyfuad',
     repoUrl: 'https://github.com/prottoyfuad/prottoyfuad/tree/angular',
     nwo: 'prottoyfuad/prottoyfuad'
-  }
-
-  markdownContent: string = "";
-  htmlContent: string = "";
-
-  constructor(private httpClient: HttpClient) {}
-
-  ngOnInit(): void {
-    this.httpClient.get('flow.md', { responseType: 'text' })
-      .subscribe({
-        next: (markdown: string) => {
-          this.markdownContent = markdown; // Store raw markdown content
-          this.htmlContent = marked(markdown).toString(); // Convert Markdown to HTML
-        },
-        error: (err) => {
-          console.error('Error loading Markdown file', err);
-        }
-      });
   }
   
 }
