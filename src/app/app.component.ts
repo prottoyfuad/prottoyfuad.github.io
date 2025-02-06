@@ -1,30 +1,34 @@
 
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { FlowComponent } from './blogs/flow/flow.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    HomeComponent,
+    FlowComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  view: string = 'app-home';
   site: any = {
     title: 'Eucalyptus',
     logo: './logo.jpg',
     url: 'https://prottoyfuad.github.io',
     description: [
-      'ছায়ারো ছায়াতে সে অন্যজন,',
+      'ছায়ারও ছায়াতে সে অন্যজন,',
       'ভরদুপুরে একলা রাতে অন্যমন!'
     ],
     userInfo: [
       'Prottoy Fuad',
-      'SWE | Competitive Programmer',
+      'Competitive Programmer',
       'Chittagong, Bangladesh'
     ]
   }
-
   git: any = {
     username: 'prottoyfuad',
     fullName: 'Prottoy Fuad',
@@ -33,5 +37,8 @@ export class AppComponent {
     repoUrl: 'https://github.com/prottoyfuad/prottoyfuad/tree/angular',
     nwo: 'prottoyfuad/prottoyfuad'
   }
-  
+
+  changeView(view: string) {
+    this.view = view;
+  }
 }

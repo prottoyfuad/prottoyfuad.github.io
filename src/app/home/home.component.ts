@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  @Input() view: string = 'app-home';
+  @Output() viewChange = new EventEmitter<string>();
 
+  changeView(view: string) {
+    this.view = view;
+    this.viewChange.emit(this.view);
+  }
 }

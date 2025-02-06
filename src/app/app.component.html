@@ -1,13 +1,9 @@
 <div class="wrapper">
   <header>
     <h1>
-      <a href="{{ site.url }}">
-        {{ site.title  }}
-      </a>
+      <a (click)="changeView('app-home')">{{ site.title  }}</a>
     </h1>
-    
     <img src="{{ site.logo }}" alt="Logo" />
-
     <p>
       @for (line of site.description; track $index) {
         <i>{{ line }}</i><br>
@@ -19,7 +15,6 @@
         <small>{{ git.nwo }}</small>
       </a>
     </p>
-
     <p>
       @for (line of site.userInfo; track $index) {
         {{ line }}<br>
@@ -33,15 +28,27 @@
   </header>
 
   <section>
-    <router-outlet/>
+    @switch (view) {
+      @case ('app-home') {
+        <app-home [(view)]="view"></app-home>
+      }
+      @case ('app-flow') {
+        <app-flow [(view)]="view"></app-flow>
+      }
+    }
   </section> 
 
   <footer>
-    <p>
-      This project is maintained by
-      <a href="{{ git.url }}">
-        {{ git.fullName }}
-      </a>
-    </p>
+    @if(view === 'app-home') {
+      <p><i>
+        This site is maintained by
+        <a href="{{ git.url }}">
+          {{ git.fullName }}
+        </a>
+      </i></p>
+    } @else {
+      <!--We need to go to parent instead of home-->
+      <p><a (click)="changeView('app-home')">Go back</a></p>
+    }
   </footer>
 </div>
