@@ -1,10 +1,7 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# Docs
+drafts/*
 
 # Node
 /node_modules
@@ -29,15 +26,10 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
 # System files
 .DS_Store
 Thumbs.db
+
+# Claude
+CLAUDE.md
+.claude/*

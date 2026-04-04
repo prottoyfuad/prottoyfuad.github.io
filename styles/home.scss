@@ -1,0 +1,56 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
+  min-height: 100vh;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    a {
+      text-decoration: none;
+      padding: 0.5rem 1.75rem;
+      border: 1px solid #ccc;
+      border-radius: 2rem;
+      font-size: 0.95rem;
+      transition: border-color 0.15s;
+
+      &:hover {
+        border-color: #1a1a1a;
+      }
+    }
+  }
+
+  .hero-image {
+    width: 360px;
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .poem {
+    font-style: italic;
+    white-space: pre-line;
+    line-height: 2;
+    color: #555;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+}

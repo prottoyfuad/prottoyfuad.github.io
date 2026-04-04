@@ -1,0 +1,55 @@
+@charset "UTF-8";
+.blogs-page {
+  padding: 2rem 0 4rem;
+}
+.blogs-page h1 {
+  margin: 0 0 2rem;
+}
+
+.blog-intro {
+  margin-bottom: 2rem;
+  color: #555;
+}
+.blog-intro:empty {
+  display: none;
+}
+
+details summary {
+  cursor: pointer;
+  user-select: none;
+  padding: 0.35rem 0;
+  list-style: none;
+  font-weight: 600;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary::before {
+  content: "▸ ";
+  font-size: 0.75em;
+  color: #999;
+}
+details[open] > summary::before {
+  content: "▾ ";
+}
+details ul {
+  margin: 0.35rem 0 0.75rem;
+  padding-left: 1.25rem;
+}
+details li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.2rem 0;
+  flex-wrap: wrap;
+}
+details li a {
+  text-decoration: none;
+}
+details li a:hover {
+  text-decoration: underline;
+}
+details li time {
+  font-size: 0.8rem;
+  color: #999;
+}

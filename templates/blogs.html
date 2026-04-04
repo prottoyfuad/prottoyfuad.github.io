@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="icon" href="{{FAVICON_PATH}}">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/blogs.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <main class="blogs-page">
+      <h1>Blogs</h1>
+      <div class="blog-intro">{{BLOG_INTRO}}</div>
+      {{POSTS_LIST}}
+    </main>
+  </div>
+  <script src="/js/breadcrumb.js"></script>
+  <script src="/js/blog-list.js"></script>
+</body>
+</html>

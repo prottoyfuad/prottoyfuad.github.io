@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="icon" href="{{FAVICON_PATH}}">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/post.css">
+  <link rel="stylesheet" href="/styles/highlight.css">
+</head>
+<body data-post-title="{{POST_TITLE}}">
+  <div class="container">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <main class="post-page">
+      <header class="post-header">
+        <h1>{{POST_TITLE}}</h1>
+        <p class="post-meta"><img class="avatar" src="{{AVATAR_PATH}}" alt="{{POST_AUTHOR}}"> {{POST_AUTHOR}} &middot; <time>{{POST_DATE}}</time></p>
+      </header>
+      <article>
+        {{POST_CONTENT}}
+      </article>
+    </main>
+  </div>
+  <script src="/js/breadcrumb.js"></script>
+</body>
+</html>
