@@ -8,7 +8,7 @@
 
 .blog-intro {
   margin-bottom: 2rem;
-  color: #555;
+  color: var(--text-muted);
 }
 .blog-intro:empty {
   display: none;
@@ -27,7 +27,7 @@ details summary::-webkit-details-marker {
 details summary::before {
   content: "▸ ";
   font-size: 0.75em;
-  color: #999;
+  color: var(--text-light);
 }
 details[open] > summary::before {
   content: "▾ ";
@@ -51,5 +51,5 @@ details li a:hover {
 }
 details li time {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-light);
 }

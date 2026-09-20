@@ -21,19 +21,19 @@
     a {
       text-decoration: none;
       padding: 0.5rem 1.75rem;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
       border-radius: 2rem;
       font-size: 0.95rem;
       transition: border-color 0.15s;
 
       &:hover {
-        border-color: #1a1a1a;
+        border-color: var(--text-primary);
       }
     }
   }
 
   .hero-image {
-    width: 360px;
+    width: 540px;
     max-width: 100%;
     border-radius: 4px;
     margin-bottom: 1rem;
@@ -43,12 +43,12 @@
     font-style: italic;
     white-space: pre-line;
     line-height: 2;
-    color: #555;
-    max-width: 480px;
+    color: var(--text-muted);
+    max-width: 720px;
     margin: 0;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     h1 {
       font-size: 1.75rem;
     }

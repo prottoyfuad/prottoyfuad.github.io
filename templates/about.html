@@ -7,6 +7,16 @@
   <link rel="icon" href="{{FAVICON_PATH}}">
   <link rel="stylesheet" href="/styles/base.css">
   <link rel="stylesheet" href="/styles/about.css">
+  <script>
+    (function() {
+      var storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="container">
@@ -23,5 +33,6 @@
     </main>
   </div>
   <script src="/js/breadcrumb.js"></script>
+  <script src="/js/theme.js"></script>
 </body>
 </html>

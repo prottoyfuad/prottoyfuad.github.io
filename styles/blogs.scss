@@ -8,7 +8,7 @@
 
 .blog-intro {
   margin-bottom: 2rem;
-  color: #555;
+  color: var(--text-muted);
 
   &:empty {
     display: none;
@@ -30,7 +30,7 @@ details {
     &::before {
       content: "▸ ";
       font-size: 0.75em;
-      color: #999;
+      color: var(--text-light);
     }
   }
 
@@ -60,7 +60,7 @@ details {
 
     time {
       font-size: 0.8rem;
-      color: #999;
+      color: var(--text-light);
     }
   }
 }

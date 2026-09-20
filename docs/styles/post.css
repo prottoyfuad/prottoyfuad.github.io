@@ -5,7 +5,7 @@
 .post-header {
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-light);
 }
 .post-header h1 {
   margin: 0 0 0.5rem;
@@ -14,7 +14,7 @@
 
 .post-meta {
   font-size: 0.875rem;
-  color: #888;
+  color: var(--text-light);
   margin: 0;
 }
 .post-meta .avatar {
@@ -50,7 +50,7 @@ article code {
 }
 article p code,
 article li code {
-  background: #f4f4f4;
+  background: var(--bg-code);
   padding: 0.15em 0.4em;
   border-radius: 3px;
 }
@@ -64,18 +64,18 @@ article table {
 }
 article th, article td {
   padding: 0.5rem 0.9rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   text-align: left;
 }
 article th {
-  background: #f8f8f8;
+  background: var(--bg-table-head);
   font-weight: 600;
 }
 article blockquote {
   margin: 1.5rem 0;
   padding: 0.25rem 1rem;
-  border-left: 3px solid #ddd;
-  color: #666;
+  border-left: 3px solid var(--border-color);
+  color: var(--text-muted);
 }
 article ul, article ol {
   padding-left: 1.5rem;
@@ -83,7 +83,7 @@ article ul, article ol {
 article li {
   margin: 0.25rem 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   article pre {
     font-size: 0.8rem;
   }

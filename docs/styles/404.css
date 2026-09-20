@@ -11,10 +11,10 @@
   font-size: 6rem;
   font-weight: 200;
   margin: 0 0 1rem;
-  color: #ccc;
+  color: var(--border-color);
 }
 .not-found p {
-  color: #666;
+  color: var(--text-muted);
   margin: 0 0 2rem;
 }
 .not-found a {

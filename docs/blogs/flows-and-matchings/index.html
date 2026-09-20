@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="/styles/base.css">
   <link rel="stylesheet" href="/styles/post.css">
   <link rel="stylesheet" href="/styles/highlight.css">
+  <script>
+    (function() {
+      var storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body data-post-title="Flows and Matchings">
   <div class="container">
@@ -179,5 +189,6 @@ So, the total complexity won&#39;t be more than O(m.2n23).</p>
     </main>
   </div>
   <script src="/js/breadcrumb.js"></script>
+  <script src="/js/theme.js"></script>
 </body>
 </html>

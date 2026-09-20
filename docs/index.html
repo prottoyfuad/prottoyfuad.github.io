@@ -7,6 +7,16 @@
   <link rel="icon" href="/assets/favicon.png">
   <link rel="stylesheet" href="/styles/base.css">
   <link rel="stylesheet" href="/styles/home.css">
+  <script>
+    (function() {
+      var storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
   <main class="home">
@@ -19,5 +29,6 @@
     <p class="poem">ছায়ারও ছায়াতে সে অন্যজন,
 ভরদুপুরে একলা রাতে অন্যমন!</p>
   </main>
+  <script src="/js/theme.js"></script>
 </body>
 </html>

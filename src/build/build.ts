@@ -147,7 +147,8 @@ async function bundleClientScripts(): Promise<void> {
   await esbuild.build({
     entryPoints: [
       'src/client/breadcrumb.ts',
-      'src/client/blog-list.ts'
+      'src/client/blog-list.ts',
+      'src/client/theme.ts'
     ],
     bundle: true,
     outdir: path.join(OUT_DIR, 'js'),
