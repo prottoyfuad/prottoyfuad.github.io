@@ -2,25 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1.5rem 3rem;
+  justify-content: center;
+  padding: 1rem 1.5rem;
   text-align: center;
   min-height: 100vh;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 300;
     letter-spacing: 0.05em;
-    margin: 0 0 1rem;
+    margin: 0 0 0.5rem;
   }
 
   .main-nav {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
 
     a {
       text-decoration: none;
-      padding: 0.5rem 1.75rem;
+      padding: 0.3rem 1.5rem;
       border: 1px solid var(--border-color);
       border-radius: 2rem;
       font-size: 0.95rem;
@@ -42,7 +43,7 @@
   .poem {
     font-style: italic;
     white-space: pre-line;
-    line-height: 2;
+    line-height: 1.4;
     color: var(--text-muted);
     max-width: 720px;
     margin: 0;
@@ -50,7 +51,7 @@
 
   @media (max-width: 900px) {
     h1 {
-      font-size: 1.75rem;
+      font-size: 1.6rem;
     }
   }
 }
