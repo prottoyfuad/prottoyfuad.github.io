@@ -5,10 +5,9 @@ export const siteConstants = {
   // Optional: set custom domain to auto-generate a CNAME file on build.
   domain: 'prottoyfuad.com',
   social: {
-    X: 'https://x.com/prottoyfuad',
-    GitHub: 'https://github.com/prottoyfuad',
-    LinkedIn: 'https://linkedin.com/in/prottoyfuad',
     Codeforces: 'https://codeforces.com/profile/prottoyfuad',
-    Atcoder: 'https://atcoder.jp/users/prottoyfuad'
+    Atcoder: 'https://atcoder.jp/users/prottoyfuad',
+    GitHub: 'https://github.com/prottoyfuad',
+    LinkedIn: 'https://linkedin.com/in/prottoyfuad'
   },
 } as const;
