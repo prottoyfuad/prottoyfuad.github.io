@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How the Web Works: A First-Principles Guide | Prottoy Fuad</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/post.css">
+  <link rel="stylesheet" href="/styles/highlight.css">
+  <script>
+    (function() {
+      var storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body data-post-title="How the Web Works: A First-Principles Guide">
+  <div class="container">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <main class="post-page">
+      <header class="post-header">
+        <h1>How the Web Works: A First-Principles Guide</h1>
+        <p class="post-meta"><img class="avatar" src="/assets/avatar.jpg" alt="Prottoy Fuad"> Prottoy Fuad &middot; <time>December 14, 2024</time></p>
+      </header>
+      <article>
+        <blockquote>
+<p><em>If you can&#39;t explain it simply, you don&#39;t understand it well enough. — Richard Feynman</em></p>
+</blockquote>
+<p>Imagine you are sitting in a restaurant. </p>
+<p>You read the menu, you tell the waiter what you want, the waiter goes to the kitchen, the chef cooks the meal, and the waiter brings it back to your table. You don’t need to know how the oven works, where the chef bought the tomatoes, or how the plates are washed. You just know that when you ask for food, it arrives.</p>
+<p>The entire internet operates on exactly this principle. </p>
+<p>When you type a website address into your phone and press enter, you are placing an order. The phone is you. The website is the meal. But what happens in the milliseconds between pressing enter and the page appearing? What exactly <em>is</em> the waiter, the kitchen, and the chef?</p>
+<p>Let’s tear the web apart and look at the gears. No jargon. No assumed knowledge. Just the physical reality of how the modern world talks to itself. Grab a coffee; this is a comprehensive journey from the copper wires buried under the ocean to the pixels glowing on your screen.</p>
+<hr>
+<h2>Part 1: The Physical Reality (It&#39;s Just Cables)</h2>
+<p>We often use the word &quot;cloud,&quot; which evokes a fluffy, ethereal magic floating above us. The term was invented by marketing departments to make computing sound friendly. </p>
+<p>Forget the cloud. The cloud does not exist. </p>
+<p>The internet is a physical, tangible thing. It is a massive network of physical computers connected by copper wires, fiber optic cables, and radio waves. When you upload a photo to &quot;the cloud,&quot; it is literally traveling through a wire out of your house, across your city, and saving itself onto a spinning hard drive inside a noisy, air-conditioned warehouse owned by Amazon, Google, or Microsoft.</p>
+<h3>Clients and Servers</h3>
+<p>In our restaurant analogy, there are two primary roles on the web:</p>
+<ol>
+<li><strong>The Client:</strong> This is the computer asking for things. Usually, it&#39;s the web browser on your phone, laptop, or smart TV. You are the customer at the table.</li>
+<li><strong>The Server:</strong> This is the computer answering the request. It is a high-powered machine running 24 hours a day, 7 days a week, doing nothing but waiting to be asked for a file. It is the kitchen.</li>
+</ol>
+<p>The web is, at its absolute core, just clients asking servers for documents, and servers sending those documents back over cables.</p>
+<h3>The Address System: IP Addresses</h3>
+<p>If you want to send a letter to a friend, you need their street address. On the internet, every single device—your phone, your smart fridge, and the massive Google servers—has a unique number called an <strong>IP Address</strong> (Internet Protocol Address). </p>
+<p>An IPv4 address looks like this: <code>104.26.10.234</code>. 
+Because the world ran out of these combinations, we invented IPv6, which looks like this: <code>2600:1f14:3a00:2::10</code>. </p>
+<p>When your phone wants to talk to a server, it needs to know the server&#39;s IP address to route the message through the maze of global cables.</p>
+<h3>The Phonebook: DNS</h3>
+<p>But humans are terrible at remembering random strings of numbers. You don&#39;t memorize the geographic coordinates of your favorite restaurant; you just remember its name, like &quot;Bob&#39;s Burgers.&quot; </p>
+<p>To solve this, the internet uses the <strong>Domain Name System (DNS)</strong>. DNS is simply the internet’s phonebook. It translates human-readable names (like <code>google.com</code>) into computer-readable IP addresses.</p>
+<p>When you type a website into your browser, a frantic, multi-step search occurs in milliseconds:</p>
+<ol>
+<li><strong>The Browser Cache:</strong> Your browser checks if you visited this site recently. If you did, it already knows the IP address.</li>
+<li><strong>The OS Cache:</strong> If the browser doesn&#39;t know, it asks your computer&#39;s operating system.</li>
+<li><strong>The Resolver:</strong> If your computer doesn&#39;t know, it asks your Internet Service Provider (like Comcast or AT&amp;T). </li>
+<li><strong>The Root Servers:</strong> If your ISP doesn&#39;t know, it asks the global &quot;Root Servers&quot;—the absolute top of the internet hierarchy. There are only 13 logical root servers in the world. They act as the librarians of the internet.</li>
+<li><strong>The Authoritative Name Server:</strong> The root server points your ISP to the specific server that holds the records for that website. The IP is found, and sent all the way back down the chain to your phone.</li>
+</ol>
+<p>Now, your phone knows exactly where to send its message.</p>
+<h3>The Maze: BGP Routing</h3>
+<p>Knowing the destination&#39;s address is only half the battle. How does the message actually get there? </p>
+<p>If you are in New York and the server is in London, your message has to cross the Atlantic Ocean. It travels through your home router, to a street cabinet, to your ISP&#39;s regional center, and then it hits the backbone of the internet. </p>
+<p>The internet uses a protocol called <strong>BGP (Border Gateway Protocol)</strong> to find the fastest path. Think of BGP as Google Maps for data. The internet is constantly shifting—cables get cut by sharks, servers go down, traffic jams occur. BGP constantly recalculates the fastest route from router to router across the globe. Your message might bounce through 15 different physical locations before it finally reaches the server in London.</p>
+<hr>
+<h2>Part 2: The Conversation (TCP and TLS)</h2>
+<p>Your phone has found the path to the server. Now it needs to establish a connection. You can&#39;t just shout across the internet and hope the server hears you. You need a reliable connection.</p>
+<h3>The Handshake: TCP</h3>
+<p>The internet uses a protocol called <strong>TCP (Transmission Control Protocol)</strong> to guarantee that messages are delivered reliably. The internet is chaotic; packets of data get lost all the time. TCP is the supervisor that ensures everything arrives in order.</p>
+<p>Before any actual data is sent, the client and server perform a &quot;Three-Way Handshake&quot; to establish trust:</p>
+<ol>
+<li><strong>SYN (Synchronize):</strong> The client sends a tiny message saying, <em>&quot;Hello, I would like to talk to you. Are you there?&quot;</em></li>
+<li><strong>SYN-ACK (Synchronize-Acknowledge):</strong> The server receives it and replies, <em>&quot;Hello! I am here, and I am ready to talk.&quot;</em></li>
+<li><strong>ACK (Acknowledge):</strong> The client replies, <em>&quot;Great, I heard you. Let&#39;s begin.&quot;</em></li>
+</ol>
+<p>Only after this elaborate greeting does the actual conversation start. </p>
+<h3>The Armor: TLS (The &#39;S&#39; in HTTPS)</h3>
+<p>In the early days of the web, conversations were sent in &quot;plaintext.&quot; This meant that anyone sitting between you and the server—your ISP, a hacker on the same coffee shop Wi-Fi, a government agency—could read exactly what you were sending. If you typed a password, they saw your password.</p>
+<p>To fix this, we created <strong>TLS (Transport Layer Security)</strong>. This is the <code>s</code> in <code>https://</code>. </p>
+<p>TLS encrypts the conversation using incredibly complex mathematics (Prime Number Factorization and Elliptic Curves). Without diving into the math, it works like this:
+The server sends your browser an open padlock (a Public Key). Your browser writes its message, puts it in a box, and snaps the padlock shut. The <em>only</em> person in the universe who has the key to open that padlock is the server (the Private Key). </p>
+<p>Even if a hacker intercepts the box as it travels across the Wi-Fi network, all they see is scrambled, unbreakable gibberish. This mathematical armor is what makes online banking, shopping, and private messaging possible.</p>
+<hr>
+<h2>Part 3: Placing the Order (HTTP)</h2>
+<p>The physical connection is made. The armor is on. Now, it&#39;s time for the waiter to take your order to the kitchen. The language they speak is <strong>HTTP (Hypertext Transfer Protocol)</strong>.</p>
+<p>HTTP is surprisingly readable. It is not complex binary code; it is literally just text.</p>
+<p>When you click a link, your browser sends a request that looks exactly like this:</p>
+<pre><code class="hljs language-plaintext">GET /articles/how-the-web-works HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (iPhone; Safari)
+Accept-Language: en-US</code></pre><p>Let&#39;s break down this order ticket:</p>
+<ul>
+<li><strong>The Verb:</strong> <code>GET</code>. This tells the server what you want to do. You want to <em>get</em> a document. If you were submitting a login form, the verb would be <code>POST</code> (you are giving data to the server). If you were deleting a photo, the verb would be <code>DELETE</code>.</li>
+<li><strong>The Path:</strong> <code>/articles/how-the-web-works</code>. This tells the server exactly which file you are looking for.</li>
+<li><strong>The Headers:</strong> The rest of the lines are metadata. <code>User-Agent</code> tells the server what kind of device you are using, so the server can send a mobile-friendly version of the site if necessary. <code>Accept-Language</code> tells the server you prefer English.</li>
+</ul>
+<h3>The Kitchen&#39;s Reply</h3>
+<p>The server reads this text ticket, gathers the requested document, and sends a text reply back:</p>
+<pre><code class="hljs language-plaintext">HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 5042
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+... (the actual webpage code) ...
+&lt;/html&gt;</code></pre><p>The most important part of the reply is the <strong>Status Code</strong>. It is a three-digit number that summarizes how the transaction went:</p>
+<ul>
+<li><strong>200 OK:</strong> Success. Here is your food.</li>
+<li><strong>301 Moved Permanently:</strong> That article moved. I&#39;m redirecting you to the new location.</li>
+<li><strong>401 Unauthorized:</strong> You need to log in to see this.</li>
+<li><strong>404 Not Found:</strong> You ordered something that isn&#39;t on the menu.</li>
+<li><strong>500 Internal Server Error:</strong> The kitchen caught on fire. The server encountered a bug in its own code.</li>
+</ul>
+<p>Every single interaction on the web—loading a page, &quot;liking&quot; a photo, sending a chat message—is just a variation of this simple text-based request and response cycle.</p>
+<hr>
+<h2>Part 4: Plating the Food (The Browser Engine)</h2>
+<p>When the server replies with a <code>200 OK</code>, it sends back the code for the webpage. But you don&#39;t see code. You see formatted text, colorful buttons, and images. </p>
+<p>Turning raw code into pixels on your screen is the job of the <strong>Browser Engine</strong>. Browsers like Chrome (which uses an engine called Blink) and Safari (WebKit) are some of the most complex pieces of software ever written. Their job is to parse three distinct languages and combine them instantly.</p>
+<h3>HTML is the Nouns</h3>
+<p>HTML (Hypertext Markup Language) provides the structure. It tells the browser <em>what</em> things are. 
+<em>&quot;This is a heading. This is a paragraph. This is an image. This is a button.&quot;</em>
+If a website were a house, HTML is the wooden framing and the bricks. </p>
+<p>When the browser receives the HTML, it reads it top-to-bottom and builds an invisible family tree in its memory called the <strong>DOM (Document Object Model)</strong>. The <code>&lt;html&gt;</code> tag is the grandparent, the <code>&lt;body&gt;</code> is the parent, and the <code>&lt;p&gt;</code> (paragraph) tags are the children. </p>
+<h3>CSS is the Adjectives</h3>
+<p>HTML by itself is ugly. It&#39;s just black text on a white background. CSS (Cascading Style Sheets) provides the design. It tells the browser what things <em>look like</em>.
+<em>&quot;Make the heading blue. Put a margin around the paragraph. Make the button rounded.&quot;</em>
+In our house analogy, CSS is the paint on the walls, the carpets, and the interior decorating.</p>
+<p>The browser reads the CSS, builds another invisible tree called the <strong>CSSOM</strong>, and merges it with the DOM. Now the browser knows not only that there is a button, but that the button should be blue.</p>
+<h3>Layout and Paint</h3>
+<p>With the structures and styles combined, the browser calculates the <strong>Layout</strong>. It does complex math to figure out exactly how many pixels wide the button should be, and exactly where it should sit on your specific screen size. </p>
+<p>Finally, the browser <strong>Paints</strong>. It sends instructions to your computer&#39;s graphics card to color the actual physical pixels on your monitor. All of this—parsing, building trees, calculating layout, and painting—happens in a few milliseconds.</p>
+<h3>JavaScript is the Verbs</h3>
+<p>If HTML is the nouns and CSS is the adjectives, JavaScript provides the behavior. It makes the website <em>do</em> things without having to talk to the server again.
+<em>&quot;When the user clicks the blue button, make a popup appear. If they type a weak password, show a warning in red.&quot;</em>
+JavaScript is the electricity and the plumbing in the house. It brings the structure to life.</p>
+<p>Browsers have a dedicated &quot;engine&quot; just for running JavaScript (Chrome&#39;s is called V8). As soon as the browser downloads a JavaScript file, the V8 engine uses a technique called JIT (Just-In-Time) compilation. It translates the human-readable JavaScript into machine code (1s and 0s) right there on your computer, allowing it to run at blisteringly fast speeds.</p>
+<p>In the early days of the web, JavaScript was only used for tiny things like making snow fall on a page. Today, JavaScript is a powerhouse. Entire applications (like Google Docs or Spotify) are massive JavaScript programs downloaded to your browser, running in real-time on your machine. We call these <strong>Single Page Applications (SPAs)</strong>, and they are usually built with <strong>Frontend Frameworks</strong> like React, Vue, or Angular, which make managing complex JavaScript easier for developers.</p>
+<hr>
+<h2>Part 5: The Kitchen (Inside the Backend)</h2>
+<p>So far, we&#39;ve talked about the client (the frontend). But what actually happens inside the server (the backend)?</p>
+<p>If you build a website that just shows a static blog post, you don&#39;t need a complex backend. You just put an HTML file on a computer, and when someone asks for it, a simple web server (like Nginx) hands it over. </p>
+<p>But what if you are building Twitter? You can&#39;t have a static HTML file for Twitter, because the content is different every second, and it&#39;s different for every single user. </p>
+<p>This requires a <strong>Backend Application</strong>. </p>
+<p>When your HTTP request arrives at the server, it is handed over to a custom program written by developers (often in languages like Python, Java, Node.js, C#, or Go). This program&#39;s job is to act as the head chef. </p>
+<p>Here is exactly what the backend program does when it receives a request to &quot;Post a Tweet&quot;:</p>
+<ol>
+<li><strong>Routing:</strong> The backend looks at the HTTP Path (<code>/post-tweet</code>). It has a map that says, <em>&quot;Ah, if the path is <code>/post-tweet</code>, I need to run the <code>SaveTweet</code> function.&quot;</em></li>
+<li><strong>Middleware (The Bouncers):</strong> Before the function runs, the request goes through middleware. This checks things like: <em>&quot;Is this user logged in? Do they have a valid session token? Are they sending too many requests too fast?&quot;</em> If the middleware fails, it rejects the request with a <code>401 Unauthorized</code> status code.</li>
+<li><strong>Business Logic:</strong> If the bouncers let the request through, the actual function runs. The backend checks the length of the tweet. <em>&quot;Is it under 280 characters?&quot;</em> If yes, it proceeds.</li>
+<li><strong>Database Interaction:</strong> The backend takes the text of the tweet and sends it to the database to be saved permanently.</li>
+</ol>
+<h3>The Database: The Kitchen&#39;s Pantry</h3>
+<p>Servers turn off. Programs crash. If a computer restarts, anything in its active memory is wiped out forever. </p>
+<p>To prevent you from losing your account every time Twitter updates their servers, the backend writes your data into a <strong>Database</strong>. A database is a highly specialized piece of software designed to do one thing perfectly: save data securely on a hard drive, and find it incredibly fast when asked. </p>
+<p>There are two main types:</p>
+<ul>
+<li><strong>Relational Databases (SQL):</strong> These are like massive Excel spreadsheets. They have tables with strict columns and rows. They are perfect for highly structured data with clear relationships (e.g., Users have Orders, Orders have Items). Under the hood, they use complex data structures called B-Trees to find a single row among billions in milliseconds.</li>
+<li><strong>Document Databases (NoSQL):</strong> These are more like filing cabinets full of flexible text documents. They are great when data doesn&#39;t fit neatly into a rigid table structure.</li>
+</ul>
+<p>When you load your profile, the backend asks the database, &quot;Find all tweets by this user.&quot; The database searches its billions of records, hands them to the backend program, the backend formats them into a neat JSON package, and ships them back to your browser.</p>
+<hr>
+<h2>Part 6: Escaping the Cycle (WebSockets)</h2>
+<p>For decades, the web strictly followed the restaurant rules: The waiter only brings you food if you order it. The server <em>never</em> talks to the client unless the client asks a question first. Every HTTP conversation is initiated by the client.</p>
+<p>But what about a chat app like WhatsApp or Slack? If your friend sends you a message, your phone didn&#39;t ask the server for it. The server somehow pushed it to your phone instantly. How is this possible if HTTP only works when the client asks?</p>
+<p>Early on, developers used a hack called &quot;Long Polling.&quot; The phone would ask the server, <em>&quot;Any new messages?&quot;</em> The server would say, <em>&quot;No.&quot;</em> A second later, the phone would ask again. This was incredibly inefficient.</p>
+<p>To fix this, the industry invented <strong>WebSockets</strong>. </p>
+<p>A WebSocket starts as a normal HTTP request. Your phone says to the server, <em>&quot;Hey, I&#39;d like to upgrade this standard HTTP conversation to a WebSocket.&quot;</em> 
+The server says, <em>&quot;Okay, I agree.&quot;</em> </p>
+<p>Instead of hanging up after the reply, the client and server agree to leave the TCP connection completely open. It becomes a persistent, two-way pipe. Now, the rules are broken. Whenever the server receives a message from your friend, it doesn&#39;t wait for your phone to ask. It immediately shoves the message down that open pipe to your phone, with zero delay. It enables real-time, instantaneous magic.</p>
+<hr>
+<h2>Summary: The Whole Picture</h2>
+<p>The next time you open an app on your phone, visualize the invisible choreography happening in the air around you.</p>
+<p>Your phone asks the DNS phonebook to translate a name into a string of numbers. It negotiates a secure, encrypted TCP handshake across the ocean through fiber optic cables. It fires a text-based HTTP request. A fortress of a backend server receives it, verifies who you are, asks a hyper-fast filing cabinet (the database) for your information, stitches together the ingredients, and fires them back. Your phone&#39;s browser engine receives the ingredients, builds the invisible DOM trees, paints the structural nouns, applies the stylistic adjectives, and wakes up the interactive JavaScript verbs via the V8 engine. </p>
+<p>And all of this massive, global, distributed machinery operates flawlessly in less time than it takes to blink. That is the web.</p>
+
+      </article>
+    </main>
+  </div>
+  <script src="/js/breadcrumb.js"></script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>

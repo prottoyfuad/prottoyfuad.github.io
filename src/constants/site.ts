@@ -1,7 +1,7 @@
 export const siteConstants = {
   title: 'Prottoy Fuad',
   author: 'Prottoy Fuad',
-  poem: `ছায়ারও ছায়াতে সে অন্যজন,\nভরদুপুরে একলা রাতে অন্যমন!`,
+  poem: `Is all that we see or seem\nBut a dream within a dream?`,
   // Optional: set custom domain to auto-generate a CNAME file on build.
   domain: 'prottoyfuad.com',
   social: {

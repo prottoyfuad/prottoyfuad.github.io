@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How AI Works: The Autocomplete Engine That Learned to Reason | Prottoy Fuad</title>
+  <link rel="icon" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/post.css">
+  <link rel="stylesheet" href="/styles/highlight.css">
+  <script>
+    (function() {
+      var storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body data-post-title="How AI Works: The Autocomplete Engine That Learned to Reason">
+  <div class="container">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <main class="post-page">
+      <header class="post-header">
+        <h1>How AI Works: The Autocomplete Engine That Learned to Reason</h1>
+        <p class="post-meta"><img class="avatar" src="/assets/avatar.jpg" alt="Prottoy Fuad"> Prottoy Fuad &middot; <time>February 15, 2025</time></p>
+      </header>
+      <article>
+        <p>If you’ve ever typed a text message on your phone and tapped the middle suggestion button over and over to see what kind of weird sentence it creates, you already understand the fundamental mechanism of modern Artificial Intelligence. </p>
+<p>The industry uses intimidating words like &quot;Neural Networks,&quot; &quot;Large Language Models,&quot; and &quot;Generative Pre-trained Transformers.&quot; We talk about these systems as if they are digital brains, possessing intelligence, reasoning, and creativity. But strip away the mathematics, the marketing, and the billions of dollars of computing power, and what you are left with is a machine that is doing one very simple thing:</p>
+<p><strong>It is guessing the next word.</strong></p>
+<p>How did guessing the next word lead to machines that can write software, pass bar exams, summarize 100-page legal documents, and hold philosophical conversations? Let’s break down the illusion of AI, step-by-step, from absolute zero. </p>
+<hr>
+<h2>Part 1: The Core Illusion (Tokens and Probabilities)</h2>
+<p>When you ask an AI a question, it does not &quot;think&quot; about the answer the way a human does. It does not have an internal database of facts that it looks up. It has no inner monologue.</p>
+<p>Instead, it reads your question and asks itself a purely mathematical question: <em>&quot;Based on everything I have ever read on the internet, what is the most statistically likely word to come next?&quot;</em></p>
+<p>Actually, it doesn&#39;t even use words. It uses <strong>Tokens</strong>. </p>
+<p>A token is a fragment of a word. A short, common word like &quot;apple&quot; might be one token. But a longer word like &quot;Hamburger&quot; might be split into three tokens: &quot;Ham&quot;, &quot;bur&quot;, and &quot;ger&quot;. Why? Because there are millions of words in English, but if you break them down into syllables and common prefixes/suffixes, there are only about 100,000 common tokens. This makes the math much, much faster for the computer to process. </p>
+<p>If you type the prompt: <em>&quot;The sky is&quot;</em>, the model looks at those tokens, runs a massive mathematical equation, and calculates a probability distribution for every single token in its vocabulary. It might determine that the token <em>&quot;blue&quot;</em> has a 98% chance of coming next, <em>&quot;dark&quot;</em> has a 1% chance, and <em>&quot;falling&quot;</em> has a 0.01% chance. </p>
+<p>It picks <em>&quot;blue&quot;</em> and outputs it. </p>
+<p>But it doesn&#39;t stop there. Now it looks at the <em>new</em> sentence—<em>&quot;The sky is blue&quot;</em>—and runs the entire calculation again to guess the next token. It repeats this process, over and over, one single token at a time, until it guesses a special invisible token called <code>&lt;|endoftext|&gt;</code> which tells it to stop talking.</p>
+<h3>How Does it Learn? (Neural Networks)</h3>
+<p>How does it know that &quot;blue&quot; comes after &quot;The sky is&quot;? </p>
+<p>During a process called <strong>Training</strong>, engineers feed the AI essentially the entire public internet: every Wikipedia article, every Reddit post, every digitized book, and every piece of open-source code. </p>
+<p>The AI is built on a <strong>Neural Network</strong>. Imagine a giant spreadsheet with billions of dials (called <em>Parameters</em> or <em>Weights</em>). The AI reads a sentence from Wikipedia: <em>&quot;The capital of France is Paris.&quot;</em> 
+The engineers hide the word &quot;Paris&quot; and ask the AI to guess it. Because the dials are initially set to random numbers, the AI guesses &quot;banana.&quot; </p>
+<p>The engineers tell the AI, <em>&quot;Wrong. It was Paris.&quot;</em> </p>
+<p>Through a mathematical process called <strong>Backpropagation</strong>, the AI slightly adjusts millions of those dials so that next time, it is slightly more likely to guess &quot;Paris.&quot; It does this billions of times, across trillions of words, using thousands of supercomputers running for months. Eventually, the dials are perfectly tuned to capture the grammatical structure and factual relationships of human language.</p>
+<hr>
+<h2>Part 2: The Transformer Breakthrough (Attention)</h2>
+<p>If an AI is just guessing the next word, why doesn&#39;t it just spit out random, grammatically correct nonsense? How does it stay on topic for a 5-page essay?</p>
+<p>In older AI models (like RNNs), the AI had &quot;amnesia.&quot; If it was generating a long sentence, by the time it got to the end, it had mathematically forgotten the words at the beginning. If it read the word &quot;bank,&quot; it didn&#39;t know if you meant a river bank or a financial bank. </p>
+<p>The breakthrough that made modern AI possible (the &quot;T&quot; in ChatGPT stands for Transformer) was a paper published by Google in 2017 called <em>Attention Is All You Need</em>. It introduced a mechanism called <strong>Self-Attention</strong>. </p>
+<p>The Attention mechanism allows the model to look backward at <em>every single token</em> in your prompt simultaneously. When calculating the next word, it assigns an &quot;attention score&quot; to how strongly related every previous word is to the current one. </p>
+<p>If it encounters the word &quot;bank,&quot; it scans the previous text. If the word &quot;river&quot; appeared 500 words ago, the attention mechanism creates a strong mathematical link between them. The meaning of &quot;bank&quot; shifts away from finance and towards nature. </p>
+<p>This ability to maintain deep, complex context across thousands of words is what creates the illusion of reasoning. The model isn&#39;t thinking; it is generating text that perfectly fits the mathematical shape of the entire conversation.</p>
+<hr>
+<h2>Part 3: The Goldfish Problem (Context Windows)</h2>
+<p>Here is the most surprising fact about talking to an AI: <strong>It has zero memory.</strong></p>
+<p>When you chat with an AI for an hour, it feels like it remembers what you said five minutes ago. It doesn&#39;t. The model is completely stateless. The second it finishes printing a word, its mind is entirely wiped clean. It is a function: text goes in, text comes out. </p>
+<p>So how does it remember your name?</p>
+<p><strong>The conversation is an illusion maintained by your software.</strong> Every single time you send a new message, the chat app (like the ChatGPT web interface) secretly takes your <em>entire chat history</em>, bundles it up, and sends the whole thing back to the AI. </p>
+<p>If you say, &quot;My name is John,&quot; the AI replies &quot;Hi John.&quot;
+When you later say, &quot;What is my name?&quot;, the software actually sends this massive block of text to the AI:</p>
+<pre><code class="hljs language-plaintext">User: My name is John.
+AI: Hi John.
+User: What is my name?</code></pre><p>The AI reads that entire script from scratch, uses its Attention mechanism to link &quot;name&quot; to &quot;John&quot;, and its math concludes the next logical word is &quot;John&quot;. </p>
+<p>This is called the <strong>Context Window</strong>. Models have a strict physical limit on how many tokens they can read at once (early models could read 4,000 tokens; today&#39;s can read 1,000,000). Every time you send a message, you pay a computational cost to re-process the entire conversation. If your conversation gets too long and exceeds the Context Window, the software has to start deleting the oldest messages before sending the bundle to the AI. </p>
+<p>When that happens, the AI suddenly &quot;forgets&quot; things you said at the beginning of the chat—because those words were literally not included in the prompt.</p>
+<hr>
+<h2>Part 4: The Open-Book Test (RAG and Embeddings)</h2>
+<p>If an AI only guesses the next word based on what it read during its initial training, it has a massive problem: <strong>Its knowledge is frozen in time.</strong> </p>
+<p>If you ask an AI trained in 2023 who won the Super Bowl in 2025, it cannot possibly answer correctly. Worse, because it is designed to generate fluent text rather than verify truth, it will happily invent an answer. It will confidently tell you the Detroit Lions won, complete with fake statistics. This is called a <strong>Hallucination</strong>.</p>
+<p>To fix this, engineers don&#39;t retrain the whole model (which costs millions of dollars). Instead, they give the AI an open-book test using a technique called <strong>RAG (Retrieval-Augmented Generation)</strong>.</p>
+<p>Imagine asking a student a highly specific question about 18th-century French tax law. Instead of hoping they memorized it, you hand them a textbook, point to the correct page, and say, <em>&quot;Read this, and then answer the question using only what you read.&quot;</em></p>
+<p>That is RAG. But how does the computer find the correct page?</p>
+<h3>The Magic of Embeddings</h3>
+<p>Computers can&#39;t &quot;read&quot; concepts. If you search for &quot;dogs,&quot; a traditional search engine looks for the exact word &quot;dogs.&quot; If the document says &quot;canine,&quot; it misses it entirely. </p>
+<p>To solve this, AI uses <strong>Embeddings</strong>. An embedding is a way of translating a concept into a mathematical coordinate in high-dimensional space (often 1,500 dimensions). </p>
+<ul>
+<li>The coordinate for &quot;Dog&quot; is placed very close to &quot;Puppy&quot; and &quot;Canine.&quot;</li>
+<li>It is placed somewhat close to &quot;Cat&quot; (because they are both pets).</li>
+<li>It is placed extremely far away from &quot;Carburetor.&quot;</li>
+</ul>
+<p>When you ask an AI about your company&#39;s private HR policy:</p>
+<ol>
+<li>The software takes your question and turns it into a coordinate (a Vector).</li>
+<li>It goes to a specialized <strong>Vector Database</strong> that holds all your company&#39;s documents, which have also been mapped as coordinates.</li>
+<li>It performs a rapid mathematical calculation to find the document chunks that are physically closest to your question in that 1,500-dimensional space. (It realizes &quot;time off&quot; is very close to &quot;vacation policy&quot;).</li>
+<li>It extracts the text of those closest documents and silently pastes them into your prompt.</li>
+<li>The final prompt sent to the AI looks like this:
+<em>&quot;Here is some background information: [Pasted HR Documents]. Now, answer the user&#39;s question: [How many vacation days do I get?]&quot;</em></li>
+</ol>
+<p>When the AI gives you a brilliantly accurate answer about your proprietary data, it didn&#39;t learn it. You just handed it the answer key right before it spoke. <strong>When the answer is wrong, it&#39;s usually the retrieval that failed, not the model.</strong></p>
+<hr>
+<h2>Part 5: Giving it Hands (Tool Use and Agents)</h2>
+<p>Guessing the next word is great for writing poems, summarizing documents, or writing code. But what if you want the AI to <em>actually do something</em>? What if you want it to book a flight, run a database query, or delete a file? </p>
+<p>An AI cannot click buttons. It is just a text generator trapped in a box on a server. It has no hands.</p>
+<p>To solve this, we invented <strong>Tool Use</strong>. </p>
+<p>When engineers build an AI application, they include hidden instructions in a &quot;System Prompt&quot; before the user even types a word. It looks like this:
+<em>&quot;You are a helpful assistant. You cannot browse the web yourself. But if you need to know the weather, don&#39;t guess. Instead, output a specific text command formatted exactly like this: <code>{&quot;tool&quot;: &quot;get_weather&quot;, &quot;location&quot;: &quot;London&quot;}</code>.&quot;</em></p>
+<p>Now, the software running the AI watches the output stream like a hawk. When the AI outputs that JSON text command, the software hits the pause button. </p>
+<p>The <em>software</em> (not the AI) goes out, connects to a real weather API, gets the result (&quot;It is raining, 50 degrees&quot;), and pastes that result back into the chat history. Then it hits play on the AI again. </p>
+<p>The AI reads its own previous request, reads the new weather data, and finally generates the text for the user: <em>&quot;You should bring an umbrella; it&#39;s raining and 50 degrees in London.&quot;</em></p>
+<h3>The Agent Loop</h3>
+<p>When you put this all together, you create something incredibly powerful: an <strong>Agent</strong>.</p>
+<p>An agent is a software loop built <em>around</em> an LLM. It gives the AI a goal, and the AI reasons through it step-by-step:</p>
+<ol>
+<li><strong>Thought:</strong> The user wants to know if they can afford a house. I need to calculate their salary.</li>
+<li><strong>Action:</strong> Call the <code>get_salary</code> tool for this user.</li>
+<li><strong>Observation:</strong> <em>[Software runs the database query and returns $100,000]</em></li>
+<li><strong>Thought:</strong> Now I need to check current mortgage rates.</li>
+<li><strong>Action:</strong> Call the <code>web_search</code> tool for &quot;current US mortgage rates.&quot;</li>
+<li><strong>Observation:</strong> <em>[Software searches the web and returns 6.5%]</em></li>
+<li><strong>Final Answer:</strong> Based on your salary of $100k and current rates of 6.5%, you can afford...</li>
+</ol>
+<p>By linking a stateless text-generator to real-world tools, we create autonomous systems that can read git repositories, write SQL, browse the web, and solve complex multi-step problems without human intervention.</p>
+<hr>
+<h2>Part 6: The Reality Check</h2>
+<p>As we integrate AI into our daily lives and software products, the most important lesson is to stop treating it like a junior colleague, and start treating it like a hyper-advanced calculator.</p>
+<p>Text goes in, text comes out. It has no intent, no malice, no consciousness, and no ability to flag when it is unsure. Fluency and accuracy are produced by the exact same mathematical machinery, which is exactly why a fluent, fabricated answer sounds just as confident as a truthful one. Verification is your system&#39;s job; it is never the model&#39;s.</p>
+<p>When you understand the gears—Tokens, Attention, Context Windows, Vector Embeddings, RAG, and Tool Use—the magic fades. But when the magic fades, the utility skyrockets. You stop asking it to memorize the world, and start using it as an incredibly powerful reasoning engine for processing the context you provide.</p>
+
+      </article>
+    </main>
+  </div>
+  <script src="/js/breadcrumb.js"></script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>
